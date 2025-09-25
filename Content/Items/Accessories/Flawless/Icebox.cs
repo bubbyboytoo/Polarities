@@ -18,7 +18,7 @@ using Terraria.ModLoader;
 using Terraria.Utilities;
 using static Terraria.ModLoader.ModContent;
 
-namespace Prototypes.Icebox;
+namespace Polarities.Content.Items.Accessories.Flawless;
 
 public class Icebox : ModItem
 {
@@ -44,7 +44,7 @@ public class Icebox : ModItem
 
 public class IceboxManager : ModProjectile
 {
-    public override string Texture => "Prototypes/Icebox/Icebox";
+    public override string Texture => "Polarities/Content/Items/Accessories/Flawless/Icebox";
 
     public List<TilePosition> managedTiles = new List<TilePosition>();
     
@@ -194,4 +194,5 @@ public class IceBreaker : ModSystem
             else iceBreaking[ice.Key] += 0.0001f;
         }
     }
+
 }
