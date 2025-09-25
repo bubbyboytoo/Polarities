@@ -5186,14 +5186,14 @@ Mods: {
 			HeatsawPellet.DisplayName: Heatsaw Pellet
 			SuperheatPellet.DisplayName: Superheat Pellet
 			HeatsawLava.DisplayName: Heatsaw Lava
-			QSFlawlessCrystal.DisplayName: Q S Flawless Crystal
-			QSFlawlessShard.DisplayName: Q S Flawless Shard
-			GolemFlawlessArrow.DisplayName: Golem Flawless Arrow
-			GolemFlawlessSun.DisplayName: Golem Flawless Sun
-			HemorrphageFlawlessProjectile.DisplayName: Hemorrphage Flawless Projectile
-			HemorrphageFlawlessArtery.DisplayName: Hemorrphage Flawless Artery
-			HemorrphageFlawlessOffshoot.DisplayName: Hemorrphage Flawless Offshoot
-			HemorrphageFlawlessVertebra.DisplayName: Hemorrphage Flawless Vertebra
+			QSFlawlessCrystal.DisplayName: Crystal Dart
+			QSFlawlessShard.DisplayName: Crystal Dart Shard
+			GolemFlawlessArrow.DisplayName: Sunspot Arrow
+			GolemFlawlessSun.DisplayName: Miniature Sun
+			HemorrphageFlawlessProjectile.DisplayName: Aneurysm
+			HemorrphageFlawlessArtery.DisplayName: Aneurysm Artery
+			HemorrphageFlawlessOffshoot.DisplayName: Aneurysm Offshoot
+			HemorrphageFlawlessVertebra.DisplayName: Aneurysm Vertebra
 			DukeBubble.DisplayName: Duke Bubble
 			Shape.DisplayName: Shape
 			CucumberTentacle.DisplayName: Cucumber Tentacle
