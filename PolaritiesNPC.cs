@@ -1085,7 +1085,7 @@ namespace Polarities
                     break;
 
                 case NPCID.IceQueen:
-                    npcLoot.Add(ItemDropRule.ByCondition(new FlawlessDropCondition(), ItemType<ColdShoulder>()));
+                    npcLoot.Add(ItemDropRule.ByCondition(new FlawlessDropCondition(), ItemType<Icebox>()));
                     break;
             }
 
@@ -1237,5 +1237,6 @@ namespace Polarities
         }
     }
 }
+
 
 
