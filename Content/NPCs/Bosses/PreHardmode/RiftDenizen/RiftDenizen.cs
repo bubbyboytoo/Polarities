@@ -713,11 +713,10 @@ namespace Polarities.Content.NPCs.Bosses.PreHardmode.RiftDenizen
             }
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
-        {
+		public override void BossLoot(ref int potionType)
+		{
             potionType = ItemID.HealingPotion;
-        }
-
+		}
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
             bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {

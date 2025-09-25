@@ -769,7 +769,7 @@ namespace Polarities.Content.NPCs.Bosses.Hardmode.MagnetonElectris
 			return Main.player[NPC.target].dead;
 		}
 
-		public override void BossLoot(ref string name, ref int potionType)
+		public override void BossLoot(ref int potionType)
 		{
 			potionType = ItemID.SuperHealingPotion;
 		}
@@ -1270,7 +1270,7 @@ namespace Polarities.Content.NPCs.Bosses.Hardmode.MagnetonElectris
 			return Main.player[NPC.target].dead;
 		}
 
-		public override void BossLoot(ref string name, ref int potionType)
+		public override void BossLoot(ref int potionType)
 		{
 			potionType = ItemID.SuperHealingPotion;
 		}

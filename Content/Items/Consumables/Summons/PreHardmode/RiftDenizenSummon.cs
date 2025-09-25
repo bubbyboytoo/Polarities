@@ -78,7 +78,7 @@ namespace Polarities.Content.Items.Consumables.Summons.PreHardmode
 			Projectile.hide = true;
 		}
 
-		public override void Kill(int timeLeft)
+		public override void OnKill(int timeLeft)
 		{
 			Player player = Main.player[Projectile.owner];
 			NPC.SpawnOnPlayer(player.whoAmI, NPCType<RiftDenizen>());

@@ -155,7 +155,7 @@ namespace Polarities.Content.NPCs.Bosses.Hardmode.ConvectiveWanderer
             //};
             //NPCID.Sets.DebuffImmunitySets/* tModPorter Removed: See the porting notes in https://github.com/tModLoader/tModLoader/pull/3453 */.Add(Type, debuffData);
 
-            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers(0)
+            NPCID.Sets.NPCBestiaryDrawModifiers drawModifiers = new NPCID.Sets.NPCBestiaryDrawModifiers()
             {
                 CustomTexturePath = "Polarities/Content/NPCs/Bosses/Hardmode/ConvectiveWanderer/ConvectiveWanderer_Bestiary",
                 Position = new Vector2(64f, -64f)
@@ -1987,7 +1987,7 @@ namespace Polarities.Content.NPCs.Bosses.Hardmode.ConvectiveWanderer
             return true;
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
         }

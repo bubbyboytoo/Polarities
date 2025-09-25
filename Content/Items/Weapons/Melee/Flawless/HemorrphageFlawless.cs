@@ -28,7 +28,7 @@ namespace Polarities.Content.Items.Weapons.Melee.Flawless
 		}
 
 		public override void SetDefaults() {
-			Item.useStyle = 5;
+			Item.useStyle = ItemUseStyleID.Shoot;
 			Item.width = 38;
 			Item.height = 32;
 			Item.useAnimation = 25;

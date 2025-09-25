@@ -18,7 +18,7 @@ namespace Polarities.Content.Biomes.Fractal
 
 		public override int GetSplashDust()
 		{
-			return ModContent.DustType<Assets.Dusts.FractalWaterSplash>();
+			return ModContent.DustType<Assets.Dusts.SaltWaterSplash>();
 		}
 
 		public override int GetDropletGore()

@@ -888,7 +888,7 @@ namespace Polarities.Content.NPCs.Bosses.Hardmode.SunPixie
             npcLoot.Add(ItemDropRule.ByCondition(new FlawlessDropCondition(), ItemType<RayOfSunshine>()));
         }
 
-        public override void BossLoot(ref string name, ref int potionType)
+        public override void BossLoot(ref int potionType)
         {
             potionType = ItemID.GreaterHealingPotion;
         }

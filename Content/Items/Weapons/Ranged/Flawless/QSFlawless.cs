@@ -34,14 +34,14 @@ namespace Polarities.Content.Items.Weapons.Ranged.Flawless
             Item.height = 46;
             Item.useTime = 20;
             Item.useAnimation = 20;
-            Item.useStyle = 1;
+            Item.useStyle = ItemUseStyleID.Swing;
             Item.autoReuse = true;
             Item.noMelee = true;
             Item.knockBack = 6;
             Item.value = Item.sellPrice(gold: 10);
             Item.rare = RarityType<QS_RW_FlawlessRarity>();
             Item.UseSound = SoundID.Item1;
-            Item.shoot = 10;
+            Item.shoot = ProjectileID.PurificationPowder;
             Item.shootSpeed = 14.5f;
             Item.useAmmo = AmmoID.Dart;
         }
