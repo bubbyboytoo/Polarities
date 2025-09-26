@@ -37,7 +37,7 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 			Item.autoReuse = true;
 			Item.buffType = BuffType<Polariminis>();
 			Item.shoot = ProjectileType<MagnetoMini>();
-			Item.shootSpeed = 20f;
+			Item.shootSpeed = 2f;
 		}
 
         public override System.Boolean Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, System.Int32 type, System.Int32 damage, System.Single knockback)
@@ -45,7 +45,7 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 			position = Main.MouseWorld;
 			player.AddBuff(Item.buffType, 18000, true);
 			int magnetomini = Projectile.NewProjectile(source, position, velocity, ProjectileType<MagnetoMini>(), damage, knockback, player.whoAmI);
-			int electrimini = Projectile.NewProjectile(source, 2 * player.Center - position, -velocity, ProjectileType<ElectriMini>(), damage, knockback, player.whoAmI, magnetomini);
+			int electrimini = Projectile.NewProjectile(source, 2 * player.Center - position, Vector2.Zero, ProjectileType<ElectriMini>(), damage, knockback, player.whoAmI, magnetomini);
 			Main.projectile[magnetomini].ai[0] = electrimini;
 			return false;
 		}
@@ -75,8 +75,8 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 
 		public override void SetDefaults()
 		{
-			Projectile.width = 28;
-			Projectile.height = 28;
+			Projectile.width = 17;
+			Projectile.height = 18;
 			Projectile.penetrate = -1;
 			Projectile.minion = true;
 			Projectile.minionSlots = 0.5f;
@@ -129,8 +129,11 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 
 			playerOffset = newPlayerOffset;
 
-			Projectile.velocity = new Vector2(playerOffset[0], playerOffset[1]) + player.Center - Projectile.Center;
-
+			Projectile.velocity = Vector2.Lerp(Projectile.velocity,
+				new Vector2(playerOffset[0], playerOffset[1]) + player.Center - Projectile.Center, 0.05f);
+			Projectile.rotation = MathHelper.ToRadians(Projectile.velocity.X * 2);
+			
+			
 			if (player.ownedProjectileCounts[Projectile.type] == 0)
 			{
 				return;
@@ -163,8 +166,9 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 			{
 				if (attackCooldown == (240 * index / player.ownedProjectileCounts[Projectile.type]) % 240)
 				{
-					Projectile.rotation = (target.Center - Projectile.Center).ToRotation();
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(1, 0).RotatedBy(Projectile.rotation), ProjectileType<ElectriminiLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai1: Projectile.whoAmI);
+					Projectile.spriteDirection = target.Center.X > Projectile.Center.X ? 1 : -1;
+					Projectile.ai[2] = (target.Center - Projectile.Center).ToRotation();
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(1, 0).RotatedBy(Projectile.ai[2]), ProjectileType<ElectriminiLaser>(), Projectile.damage, Projectile.knockBack, Projectile.owner, ai1: Projectile.whoAmI);
 					turnCooldown = 120;
 				}
 				attackCooldown = (attackCooldown + 1) % 240;
@@ -291,8 +295,8 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 		public override void AI()
 		{
 			Projectile electris = Main.projectile[owner];
-			Projectile.position = electris.Center - Projectile.Hitbox.Size() / 2f;
-			Projectile.velocity = new Vector2(1, 0).RotatedBy(electris.rotation);
+			Projectile.position = electris.BottomRight - Projectile.Hitbox.Size() / 2f;
+			Projectile.velocity = new Vector2(1, 0).RotatedBy(electris.ai[2]);
 			if (!electris.active) { Projectile.Kill(); }
 
 			SetLaserPosition();
@@ -407,8 +411,8 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 
 			playerOffset = newPlayerOffset;
 
-			Projectile.velocity = new Vector2(playerOffset[0], playerOffset[1]) + player.Center - Projectile.Center;
-
+			Projectile.velocity = Vector2.Lerp(Projectile.velocity, new Vector2(playerOffset[0], playerOffset[1]) + player.Center - Projectile.Center, 0.05f);
+			Projectile.rotation = MathHelper.ToRadians(Projectile.velocity.X * 2);
 
 
 			//int targetID = PolaritiesProjectile.FindMinionTarget(projectile, 750f, usePlayerDistance: true);
@@ -422,13 +426,16 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 
 			if (target != null)
 			{
-				Projectile.rotation += 0.2f;
 
 				if (attackCooldown == 60)
 				{
 					attackCooldown = 0;
 
-					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, new Vector2(4, 0).RotatedBy(Projectile.rotation), ProjectileType<MagnetominiRocket>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+					Vector2 velocity = 4 * Projectile.Center.DirectionTo(target.Center);
+					Projectile.spriteDirection = target.Center.X > Projectile.Center.X ? 1 : -1;
+					SoundEngine.PlaySound(SoundID.Item10, Projectile.Center);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, velocity, ProjectileType<MagnetominiRocket>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
+					Projectile.velocity -= velocity * 2f;
 				}
 				attackCooldown++;
 			}
@@ -545,7 +552,7 @@ namespace Polarities.Content.Items.Weapons.Summon.Minions.Hardmode
 
 		public override void OnKill(int timeLeft)
 		{
-			SoundEngine.PlaySound(SoundID.Item92, Projectile.Center);
+			SoundEngine.PlaySound(SoundID.Item14, Projectile.Center);
 			for (int i = 0; i < 5; i++)
 			{
 				Main.dust[Dust.NewDust(Projectile.position - new Vector2(10, 10), Projectile.width + 20, Projectile.height + 20, 235, newColor: Color.Red, Scale: 0.5f)].noGravity = true;
