@@ -21,8 +21,8 @@ namespace Polarities.Content.Items.Weapons.Ranged.Bows.Hardmode
 		public override void SetDefaults() {
 			Item.damage = 55;
 			Item.DamageType = DamageClass.Ranged;
-			Item.width = 30;
-			Item.height = 66;
+			Item.width = 17;
+			Item.height = 33;
 			Item.useTime = 20;
 			Item.useAnimation = 20;
 			Item.useStyle = 5;
