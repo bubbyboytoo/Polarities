@@ -18,8 +18,8 @@ namespace Polarities.Content.Items.Weapons.Magic.Staffs.Hardmode
 			Item.damage = 55;
 			Item.DamageType = DamageClass.Magic;
 			Item.mana = 20;
-			Item.width = 28;
-			Item.height = 28;
+			Item.width = 16;
+			Item.height = 16;
 			Item.useTime = 15;
 			Item.useAnimation = 15;
 			Item.useStyle = 1;
