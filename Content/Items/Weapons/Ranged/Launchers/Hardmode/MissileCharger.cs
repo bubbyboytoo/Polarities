@@ -21,8 +21,8 @@ namespace Polarities.Content.Items.Weapons.Ranged.Launchers.Hardmode
 		public override void SetDefaults() {
 			Item.damage = 130;
 			Item.DamageType = DamageClass.Ranged;
-			Item.width = 50;
-			Item.height = 26;
+			Item.width = 32;
+			Item.height = 24;
 			Item.useTime = 3;
 			Item.useAnimation = 15;
             Item.reuseDelay = 30;
