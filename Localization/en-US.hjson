@@ -4445,6 +4445,11 @@ Mods: {
 				DisplayName: Sunplate Drill
 				Tooltip: ""
 			}
+
+			Icebox: {
+				DisplayName: Icebox
+				Tooltip: "Creates temporary ice structures"
+			}
 		}
 
 		NPCs: {
@@ -5226,6 +5231,7 @@ Mods: {
 			PolaritiesTeleportBeam.DisplayName: Polarities Teleport Beam
 			SunplateDrillProj.DisplayName: Sunplate Drill Proj
 			RiftBeam.DisplayName: Rift Beam
+			IceboxManager.DisplayName: Icebox Manager
 		}
 
 		Bestiary: {
