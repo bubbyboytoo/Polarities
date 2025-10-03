@@ -1,6 +1,6 @@
 displayName = Polarities
 author = turingcomplete3, bubbyboytoo, Goose
-version = 0.0.13
+version = 0.13.0
 includeSource = false
 includePDB = true
 modReferences = SubworldLibrary
