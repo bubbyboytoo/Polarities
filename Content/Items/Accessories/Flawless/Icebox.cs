@@ -4,6 +4,7 @@ using ReLogic.Content;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Polarities.Global;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -27,6 +28,8 @@ public class Icebox : ModItem
         Item.width = 19;
         Item.height = 24;
 
+        Item.rare = RarityType<IceQueenFlawlessRarity>();
+        
         Item.noMelee = true;
 
         Item.useTime = 20;
