@@ -1,6 +1,6 @@
 displayName = Polarities
-author = turingcomplete30 (Creator), Arc (Lead)
-version = 0.12.3
+author = turingcomplete3, bubbyboytoo, Goose
+version = 0.0.13
 includeSource = false
 includePDB = true
 modReferences = SubworldLibrary
